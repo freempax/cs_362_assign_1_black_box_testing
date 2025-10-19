@@ -136,6 +136,42 @@ class TestCreditCardValidator(unittest.TestCase):
         """13-digit Visa is out-of-spec here, must be False."""
         self.assertFalse(credit_card_validator("4222222222222"))
 
+    def test_mc_50_invalid_prefix(self):
+        """MC near-miss 50 should be rejected. Boundary below 51."""
+        self.assertFalse(credit_card_validator("5012345678901234"))
+
+    def test_mc_56_invalid_prefix(self):
+        """MC near-miss 56 should be rejected. Boundary above 55."""
+        self.assertFalse(credit_card_validator("5610591081018250"))
+
+    def test_amex_nearmiss_36_len_15(self):
+        """36 is not AmEx; 15-digit should be rejected. Partition trap."""
+        self.assertFalse(credit_card_validator("361111111111111"))
+
+    def test_amex_nearmiss_38_len_15(self):
+        """38 is not AmEx; 15-digit should be rejected. Partition trap."""
+        self.assertFalse(credit_card_validator("381111111111111"))
+
+    def test_mc_2series_len_15_invalid(self):
+        """2-series (valid prefix) wrong length 15 must fail (MC needs 16)."""
+        self.assertFalse(credit_card_validator("222100000000000"))
+
+    def test_mc_2series_len_17_invalid(self):
+        """2-series wrong length 17 must fail."""
+        self.assertFalse(credit_card_validator("27200000000000000"))
+
+    def test_visa_len_16_ok_but_issuer_unsupported_6011(self):
+        """Discover-like 6011 with length 16 must be rejected (unsupported)."""
+        self.assertFalse(credit_card_validator("6011111111111117"))
+
+    def test_amex_prefix_with_len_16_invalid(self):
+        """AmEx prefix with 16 digits must fail (AmEx requires 15)."""
+        self.assertFalse(credit_card_validator("3782822463100050"))
+
+    def test_mc_2series_bad_luhn_alt(self):
+        """Second 2-series Luhn-bad to pin parity mistakes."""
+        self.assertFalse(credit_card_validator("2720992718075057"))  # flip last digit
+
 
 if __name__ == "__main__":
     unittest.main()
