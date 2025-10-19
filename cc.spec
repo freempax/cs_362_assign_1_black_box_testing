@@ -1,12 +1,29 @@
+# Prefix
+  Prefix:
+  4.
+  51.
+  52.
+  53
+  54.
+  55.
+  34.
+  37.
+  2221.
+  2720.
+
+
 # Length
   Length:
-    0. [error]
-    9.
-    10.
-    19.
-    20.
-# Number
-  Number:
-    None. [error]
-    1.
-    Many.
+
+# LuhnCheck
+  LuhnCheck:
+
+
+# Visa
+  Visa:
+
+
+# MasterCard
+
+# AmEx
+  AmEx:

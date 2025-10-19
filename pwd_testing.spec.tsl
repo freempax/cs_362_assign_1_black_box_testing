@@ -1,0 +1,532 @@
+
+Test Case 1  		<error>
+   Length :  0
+
+
+Test Case 2  		<error>
+   Number :  None
+
+
+Test Case 3  		<error>
+   Uppercase :  None
+
+
+Test Case 4  		<error>
+   Lowercase :  None
+
+
+Test Case 5  		<error>
+   Symbol :  None
+
+
+Test Case 6  		(Key = 2.2.2.2.2.)
+   Length    :  7
+   Number    :  1
+   Uppercase :  1
+   Lowercase :  1
+   Symbol    :  1
+
+
+Test Case 7  		(Key = 2.2.2.2.3.)
+   Length    :  7
+   Number    :  1
+   Uppercase :  1
+   Lowercase :  1
+   Symbol    :  Many
+
+
+Test Case 8  		(Key = 2.2.2.3.2.)
+   Length    :  7
+   Number    :  1
+   Uppercase :  1
+   Lowercase :  Many
+   Symbol    :  1
+
+
+Test Case 9  		(Key = 2.2.2.3.3.)
+   Length    :  7
+   Number    :  1
+   Uppercase :  1
+   Lowercase :  Many
+   Symbol    :  Many
+
+
+Test Case 10 		(Key = 2.2.3.2.2.)
+   Length    :  7
+   Number    :  1
+   Uppercase :  Many
+   Lowercase :  1
+   Symbol    :  1
+
+
+Test Case 11 		(Key = 2.2.3.2.3.)
+   Length    :  7
+   Number    :  1
+   Uppercase :  Many
+   Lowercase :  1
+   Symbol    :  Many
+
+
+Test Case 12 		(Key = 2.2.3.3.2.)
+   Length    :  7
+   Number    :  1
+   Uppercase :  Many
+   Lowercase :  Many
+   Symbol    :  1
+
+
+Test Case 13 		(Key = 2.2.3.3.3.)
+   Length    :  7
+   Number    :  1
+   Uppercase :  Many
+   Lowercase :  Many
+   Symbol    :  Many
+
+
+Test Case 14 		(Key = 2.3.2.2.2.)
+   Length    :  7
+   Number    :  Many
+   Uppercase :  1
+   Lowercase :  1
+   Symbol    :  1
+
+
+Test Case 15 		(Key = 2.3.2.2.3.)
+   Length    :  7
+   Number    :  Many
+   Uppercase :  1
+   Lowercase :  1
+   Symbol    :  Many
+
+
+Test Case 16 		(Key = 2.3.2.3.2.)
+   Length    :  7
+   Number    :  Many
+   Uppercase :  1
+   Lowercase :  Many
+   Symbol    :  1
+
+
+Test Case 17 		(Key = 2.3.2.3.3.)
+   Length    :  7
+   Number    :  Many
+   Uppercase :  1
+   Lowercase :  Many
+   Symbol    :  Many
+
+
+Test Case 18 		(Key = 2.3.3.2.2.)
+   Length    :  7
+   Number    :  Many
+   Uppercase :  Many
+   Lowercase :  1
+   Symbol    :  1
+
+
+Test Case 19 		(Key = 2.3.3.2.3.)
+   Length    :  7
+   Number    :  Many
+   Uppercase :  Many
+   Lowercase :  1
+   Symbol    :  Many
+
+
+Test Case 20 		(Key = 2.3.3.3.2.)
+   Length    :  7
+   Number    :  Many
+   Uppercase :  Many
+   Lowercase :  Many
+   Symbol    :  1
+
+
+Test Case 21 		(Key = 2.3.3.3.3.)
+   Length    :  7
+   Number    :  Many
+   Uppercase :  Many
+   Lowercase :  Many
+   Symbol    :  Many
+
+
+Test Case 22 		(Key = 3.2.2.2.2.)
+   Length    :  8
+   Number    :  1
+   Uppercase :  1
+   Lowercase :  1
+   Symbol    :  1
+
+
+Test Case 23 		(Key = 3.2.2.2.3.)
+   Length    :  8
+   Number    :  1
+   Uppercase :  1
+   Lowercase :  1
+   Symbol    :  Many
+
+
+Test Case 24 		(Key = 3.2.2.3.2.)
+   Length    :  8
+   Number    :  1
+   Uppercase :  1
+   Lowercase :  Many
+   Symbol    :  1
+
+
+Test Case 25 		(Key = 3.2.2.3.3.)
+   Length    :  8
+   Number    :  1
+   Uppercase :  1
+   Lowercase :  Many
+   Symbol    :  Many
+
+
+Test Case 26 		(Key = 3.2.3.2.2.)
+   Length    :  8
+   Number    :  1
+   Uppercase :  Many
+   Lowercase :  1
+   Symbol    :  1
+
+
+Test Case 27 		(Key = 3.2.3.2.3.)
+   Length    :  8
+   Number    :  1
+   Uppercase :  Many
+   Lowercase :  1
+   Symbol    :  Many
+
+
+Test Case 28 		(Key = 3.2.3.3.2.)
+   Length    :  8
+   Number    :  1
+   Uppercase :  Many
+   Lowercase :  Many
+   Symbol    :  1
+
+
+Test Case 29 		(Key = 3.2.3.3.3.)
+   Length    :  8
+   Number    :  1
+   Uppercase :  Many
+   Lowercase :  Many
+   Symbol    :  Many
+
+
+Test Case 30 		(Key = 3.3.2.2.2.)
+   Length    :  8
+   Number    :  Many
+   Uppercase :  1
+   Lowercase :  1
+   Symbol    :  1
+
+
+Test Case 31 		(Key = 3.3.2.2.3.)
+   Length    :  8
+   Number    :  Many
+   Uppercase :  1
+   Lowercase :  1
+   Symbol    :  Many
+
+
+Test Case 32 		(Key = 3.3.2.3.2.)
+   Length    :  8
+   Number    :  Many
+   Uppercase :  1
+   Lowercase :  Many
+   Symbol    :  1
+
+
+Test Case 33 		(Key = 3.3.2.3.3.)
+   Length    :  8
+   Number    :  Many
+   Uppercase :  1
+   Lowercase :  Many
+   Symbol    :  Many
+
+
+Test Case 34 		(Key = 3.3.3.2.2.)
+   Length    :  8
+   Number    :  Many
+   Uppercase :  Many
+   Lowercase :  1
+   Symbol    :  1
+
+
+Test Case 35 		(Key = 3.3.3.2.3.)
+   Length    :  8
+   Number    :  Many
+   Uppercase :  Many
+   Lowercase :  1
+   Symbol    :  Many
+
+
+Test Case 36 		(Key = 3.3.3.3.2.)
+   Length    :  8
+   Number    :  Many
+   Uppercase :  Many
+   Lowercase :  Many
+   Symbol    :  1
+
+
+Test Case 37 		(Key = 3.3.3.3.3.)
+   Length    :  8
+   Number    :  Many
+   Uppercase :  Many
+   Lowercase :  Many
+   Symbol    :  Many
+
+
+Test Case 38 		(Key = 4.2.2.2.2.)
+   Length    :  20
+   Number    :  1
+   Uppercase :  1
+   Lowercase :  1
+   Symbol    :  1
+
+
+Test Case 39 		(Key = 4.2.2.2.3.)
+   Length    :  20
+   Number    :  1
+   Uppercase :  1
+   Lowercase :  1
+   Symbol    :  Many
+
+
+Test Case 40 		(Key = 4.2.2.3.2.)
+   Length    :  20
+   Number    :  1
+   Uppercase :  1
+   Lowercase :  Many
+   Symbol    :  1
+
+
+Test Case 41 		(Key = 4.2.2.3.3.)
+   Length    :  20
+   Number    :  1
+   Uppercase :  1
+   Lowercase :  Many
+   Symbol    :  Many
+
+
+Test Case 42 		(Key = 4.2.3.2.2.)
+   Length    :  20
+   Number    :  1
+   Uppercase :  Many
+   Lowercase :  1
+   Symbol    :  1
+
+
+Test Case 43 		(Key = 4.2.3.2.3.)
+   Length    :  20
+   Number    :  1
+   Uppercase :  Many
+   Lowercase :  1
+   Symbol    :  Many
+
+
+Test Case 44 		(Key = 4.2.3.3.2.)
+   Length    :  20
+   Number    :  1
+   Uppercase :  Many
+   Lowercase :  Many
+   Symbol    :  1
+
+
+Test Case 45 		(Key = 4.2.3.3.3.)
+   Length    :  20
+   Number    :  1
+   Uppercase :  Many
+   Lowercase :  Many
+   Symbol    :  Many
+
+
+Test Case 46 		(Key = 4.3.2.2.2.)
+   Length    :  20
+   Number    :  Many
+   Uppercase :  1
+   Lowercase :  1
+   Symbol    :  1
+
+
+Test Case 47 		(Key = 4.3.2.2.3.)
+   Length    :  20
+   Number    :  Many
+   Uppercase :  1
+   Lowercase :  1
+   Symbol    :  Many
+
+
+Test Case 48 		(Key = 4.3.2.3.2.)
+   Length    :  20
+   Number    :  Many
+   Uppercase :  1
+   Lowercase :  Many
+   Symbol    :  1
+
+
+Test Case 49 		(Key = 4.3.2.3.3.)
+   Length    :  20
+   Number    :  Many
+   Uppercase :  1
+   Lowercase :  Many
+   Symbol    :  Many
+
+
+Test Case 50 		(Key = 4.3.3.2.2.)
+   Length    :  20
+   Number    :  Many
+   Uppercase :  Many
+   Lowercase :  1
+   Symbol    :  1
+
+
+Test Case 51 		(Key = 4.3.3.2.3.)
+   Length    :  20
+   Number    :  Many
+   Uppercase :  Many
+   Lowercase :  1
+   Symbol    :  Many
+
+
+Test Case 52 		(Key = 4.3.3.3.2.)
+   Length    :  20
+   Number    :  Many
+   Uppercase :  Many
+   Lowercase :  Many
+   Symbol    :  1
+
+
+Test Case 53 		(Key = 4.3.3.3.3.)
+   Length    :  20
+   Number    :  Many
+   Uppercase :  Many
+   Lowercase :  Many
+   Symbol    :  Many
+
+
+Test Case 54 		(Key = 5.2.2.2.2.)
+   Length    :  21
+   Number    :  1
+   Uppercase :  1
+   Lowercase :  1
+   Symbol    :  1
+
+
+Test Case 55 		(Key = 5.2.2.2.3.)
+   Length    :  21
+   Number    :  1
+   Uppercase :  1
+   Lowercase :  1
+   Symbol    :  Many
+
+
+Test Case 56 		(Key = 5.2.2.3.2.)
+   Length    :  21
+   Number    :  1
+   Uppercase :  1
+   Lowercase :  Many
+   Symbol    :  1
+
+
+Test Case 57 		(Key = 5.2.2.3.3.)
+   Length    :  21
+   Number    :  1
+   Uppercase :  1
+   Lowercase :  Many
+   Symbol    :  Many
+
+
+Test Case 58 		(Key = 5.2.3.2.2.)
+   Length    :  21
+   Number    :  1
+   Uppercase :  Many
+   Lowercase :  1
+   Symbol    :  1
+
+
+Test Case 59 		(Key = 5.2.3.2.3.)
+   Length    :  21
+   Number    :  1
+   Uppercase :  Many
+   Lowercase :  1
+   Symbol    :  Many
+
+
+Test Case 60 		(Key = 5.2.3.3.2.)
+   Length    :  21
+   Number    :  1
+   Uppercase :  Many
+   Lowercase :  Many
+   Symbol    :  1
+
+
+Test Case 61 		(Key = 5.2.3.3.3.)
+   Length    :  21
+   Number    :  1
+   Uppercase :  Many
+   Lowercase :  Many
+   Symbol    :  Many
+
+
+Test Case 62 		(Key = 5.3.2.2.2.)
+   Length    :  21
+   Number    :  Many
+   Uppercase :  1
+   Lowercase :  1
+   Symbol    :  1
+
+
+Test Case 63 		(Key = 5.3.2.2.3.)
+   Length    :  21
+   Number    :  Many
+   Uppercase :  1
+   Lowercase :  1
+   Symbol    :  Many
+
+
+Test Case 64 		(Key = 5.3.2.3.2.)
+   Length    :  21
+   Number    :  Many
+   Uppercase :  1
+   Lowercase :  Many
+   Symbol    :  1
+
+
+Test Case 65 		(Key = 5.3.2.3.3.)
+   Length    :  21
+   Number    :  Many
+   Uppercase :  1
+   Lowercase :  Many
+   Symbol    :  Many
+
+
+Test Case 66 		(Key = 5.3.3.2.2.)
+   Length    :  21
+   Number    :  Many
+   Uppercase :  Many
+   Lowercase :  1
+   Symbol    :  1
+
+
+Test Case 67 		(Key = 5.3.3.2.3.)
+   Length    :  21
+   Number    :  Many
+   Uppercase :  Many
+   Lowercase :  1
+   Symbol    :  Many
+
+
+Test Case 68 		(Key = 5.3.3.3.2.)
+   Length    :  21
+   Number    :  Many
+   Uppercase :  Many
+   Lowercase :  Many
+   Symbol    :  1
+
+
+Test Case 69 		(Key = 5.3.3.3.3.)
+   Length    :  21
+   Number    :  Many
+   Uppercase :  Many
+   Lowercase :  Many
+   Symbol    :  Many
+
