@@ -41,6 +41,11 @@ class TestCreditCardValidator(unittest.TestCase):
         """Testing if input is empty or None."""
         self.assertFalse(credit_card_validator(None))
 
+    def test_invalid_mc_checkbit(self):
+        """Verifies MC with valid lengths and invalid check bits returns False
+        Picked using Category Partition Testing"""
+        self.assertFalse(credit_card_validator("...."))
+
 
 if __name__ == '__main__':
     unittest.main()
