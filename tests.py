@@ -170,7 +170,39 @@ class TestCreditCardValidator(unittest.TestCase):
 
     def test_mc_2series_bad_luhn_alt(self):
         """Second 2-series Luhn-bad to pin parity mistakes."""
-        self.assertFalse(credit_card_validator("2720992718075057"))  # flip last digit
+        self.assertFalse(credit_card_validator("2720992718075057"))
+
+    def test_mc_52_valid(self):
+        """MC 52 valid. Partition: 51–55 mid-range."""
+        self.assertTrue(credit_card_validator("5200828282828210"))
+
+    def test_mc_53_valid(self):
+        """MC 53 valid. Partition: 51–55 mid-range."""
+        self.assertTrue(credit_card_validator("5301250070000191"))
+
+    def test_mc_54_valid(self):
+        """MC 54 valid. Partition: 51–55 mid-range."""
+        self.assertTrue(credit_card_validator("5454545454545454"))
+
+    def test_amex_nearmiss_36_len_15(self):
+        """36 at 15 digits is NOT AmEx. Partition trap."""
+        self.assertFalse(credit_card_validator("361111111111111"))
+
+    def test_amex_nearmiss_38_len_15(self):
+        """38 at 15 digits is NOT AmEx. Partition trap."""
+        self.assertFalse(credit_card_validator("381111111111111"))
+
+    def test_mc_2series_lower_bound_2221_valid(self):
+        """MC lower bound 2221 inclusive must pass."""
+        self.assertTrue(credit_card_validator("2221000000000009"))
+
+    def test_mc_2series_upper_bound_2720_valid(self):
+        """MC upper bound 2720 inclusive must pass."""
+        self.assertTrue(credit_card_validator("2720992718075056"))
+
+    def test_discover_like_6011_rejected(self):
+        """Unsupported 6011 should be rejected."""
+        self.assertFalse(credit_card_validator("6011111111111117"))
 
 
 if __name__ == "__main__":
