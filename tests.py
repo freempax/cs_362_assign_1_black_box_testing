@@ -7,202 +7,245 @@ import unittest
 class TestCreditCardValidator(unittest.TestCase):
     """Unit tests for credit_card_validator function."""
 
-    def test_valid_visa(self):
+
+    # Visa
+    def test_1(self):
         """Testing if input is a valid Visa card number."""
+        """Boundary Value Testing"""
         self.assertTrue(credit_card_validator("4111111111111111"))
 
-    def test_valid_mastercard(self):
+    # MasterCard
+    def test_2(self):
         """Testing if input is a valid MasterCard number."""
+        """Boundary Value Testing"""
         self.assertTrue(credit_card_validator("5500000000000004"))
 
-    def test_valid_amex(self):
+    # American Express
+    def test_3(self):
         """Testing if input is a valid American Express card number."""
+        """Boundary Value Testing"""
         self.assertTrue(credit_card_validator("340000000000009"))
 
-    def test_invalid_length_short(self):
+
+    # General Tests
+    def test_4(self):
         """Testing if input length is too short."""
+        """Boundary Value Testing"""
         self.assertFalse(credit_card_validator("4111111"))
 
-    def test_invalid_length_long(self):
+    def test_5(self):
         """Testing if input length is too long."""
+        """Boundary Value Testing"""
         self.assertFalse(credit_card_validator("41111111111111111111"))
 
-    def test_invalid_luhn(self):
+    def test_6(self):
         """Testing if input fails Luhn check."""
+        """Error Guessing"""
         self.assertFalse(credit_card_validator("4111111111111121"))
 
-    def test_empty_string(self):
+    def test_7(self):
         """Testing if input is an empty string."""
+        """Error Guessing"""
         self.assertFalse(credit_card_validator(""))
 
-    def test_none_input(self):
+    def test_8(self):
         """Testing if input is empty or None."""
+        """Error Guessing"""
         self.assertFalse(credit_card_validator(None))
 
-    def test_invalid_length_one_digit(self):
+    def test_9(self):
         """Testing with a single-digit input (invalid length)."""
+        """Error Guessing"""
         self.assertFalse(credit_card_validator("4"))
 
-    def test_invalid_length_twelve_digits(self):
-        """Testing with a 12-digit input (commonly too short)."""
+    def test_10(self):
+        """Testing with a random input"""
+        """Error Guessing"""
         self.assertFalse(credit_card_validator("123456789012"))
 
-    def test_invalid_length_twenty_digits(self):
-        """Testing with a 20-digit input (too long)."""
+    def test_11(self):
+        """Testing with a 20-digit input"""
+        """Error Guessing"""
         self.assertFalse(credit_card_validator("4" * 20))
 
-    def test_visa_valid_alt(self):
-        """Visa valid; alt exemplar. Partition: Visa happy path."""
+    def test_12(self):
+        """Visa Valid input"""
+        """Partition Testing."""
         self.assertTrue(credit_card_validator("4012888888881881"))
 
-    def test_visa_len_15_invalid(self):
-        """Visa wrong length 15. BVA around 16."""
+    def test_13(self):
+        """Visa Invalid input"""
+        """Partition Testing."""
         self.assertFalse(credit_card_validator("411111111111111"))
 
-    def test_visa_len_17_invalid(self):
-        """Visa wrong length 17. BVA around 16."""
+    def test_14(self):
+        """Visa Invalid input"""
+        """Partition Testing."""
         self.assertFalse(credit_card_validator("40000000000000000"))
 
-    def test_mc_51_lower_edge_valid(self):
-        """MC 51 lower bound valid. Partition edge 51–55."""
+    def test_15(self):
+        """MC Invalid input"""
+        """Partition Testing."""
         self.assertTrue(credit_card_validator("5105105105105100"))
 
-    def test_mc_55_upper_edge_valid(self):
-        """MC 55 upper bound valid. Partition edge 51–55."""
+    def test_16(self):
+        """MC Invalid input"""
+        """Partition Testing."""
         self.assertTrue(credit_card_validator("5555555555554444"))
 
-    def test_mc_51_bad_luhn(self):
-        """MC 51 bad Luhn with valid length. Error guessing."""
+    def test_17(self):
+        """MC Bad Luhn"""
+        """Error guessing."""
         self.assertFalse(credit_card_validator("5105105105105101"))
 
-    def test_mc_51_len_15_invalid(self):
-        """MC 51 wrong length 15. BVA."""
+    def test_18(self):
+        """MC wrong Length"""
+        """Boundary Testing"""
         self.assertFalse(credit_card_validator("510510510510510"))
 
-    def test_mc_51_len_17_invalid(self):
-        """MC 51 wrong length 17. BVA."""
+    def test_19(self):
+        """MC wrong length"""
+        """Boundary Testing"""
         self.assertFalse(credit_card_validator("51051051051051000"))
 
-    def test_mc_56_invalid_prefix(self):
-        """MC near-miss 56 should be rejected. Partition trap."""
+    def test_20(self):
+        """MC with 17 Characters"""
+        """Boundary Testing"""
         self.assertFalse(credit_card_validator("5610591081018250"))
 
-    def test_mc_2series_valid_mid(self):
-        """MC 2-series mid-range valid. Partition."""
+    def test_21(self):
+        """MC testing valid prefix"""
+        """Partition Testing."""
         self.assertTrue(credit_card_validator("2223000048400011"))
 
-    def test_mc_2series_lower_bound_valid(self):
-        """MC 2221 inclusive lower bound valid. Boundary."""
-        # Use a 2221… number with valid Luhn; this one is commonly used:
+    def test_22(self):
+        """MC testing with bad luhn"""
+        """Error guessing."""
         self.assertTrue(credit_card_validator("2221000000000009"))
 
-    def test_mc_2series_upper_bound_valid(self):
-        """MC 2720 inclusive upper bound valid. Boundary."""
+    def test_23(self):
+        """MC top of boundary"""
+        """Boundary Testing."""
         self.assertTrue(credit_card_validator("2720992718075056"))
 
-    def test_mc_2series_below_range_invalid(self):
-        """MC 2220… below lower bound must fail. Off-by-one trap."""
+    def test_24(self):
+        """MC below boundary"""
+        """Boundary Testing."""
         self.assertFalse(credit_card_validator("2220000000000009"))
 
-    def test_mc_2series_above_range_invalid(self):
-        """MC 2721… above upper bound must fail. Off-by-one trap."""
+    def test_25(self):
+        """MC Above boundary"""
+        """Boundary Testing."""
         self.assertFalse(credit_card_validator("2721000000000008"))
 
-    def test_mc_2series_bad_luhn(self):
-        """MC 2-series valid prefix/length but bad Luhn should fail."""
+    def test_26(self):
+        """MC bad Luhn."""
+        """Error guessing."""
         self.assertFalse(credit_card_validator("2223000048400012"))
 
-    def test_amex_37_valid(self):
-        """AmEx 37 valid. Partition."""
+    def test_27(self):
+        """AmEx Top of boundary"""
+        """Boundary Testing."""
         self.assertTrue(credit_card_validator("378282246310005"))
 
-    def test_amex_len_16_invalid(self):
-        """AmEx wrong length 16 should fail. BVA."""
+    def test_28(self):
+        """AmEx Incorrect length"""
+        """Boundary Testing."""
         self.assertFalse(credit_card_validator("3782822463100050"))
 
-    def test_amex_bad_luhn(self):
-        """AmEx valid prefix/length but bad Luhn should fail."""
+    def test_29(self):
+        """AmEx valid prefix/length but bad Luhn."""
+        """Error guessing."""
         self.assertFalse(credit_card_validator("378282246310006"))
 
-    def test_discover_like_6011_rejected(self):
-        """Unsupported issuer 6011 should be rejected. Partition."""
-        self.assertFalse(credit_card_validator("6011111111111117"))
-
-    def test_all_zeros_rejected(self):
-        """All zeros should be rejected. Error guessing."""
+    def test_31(self):
+        """All zeros should be rejected."""
+        """Error guessing."""
         self.assertFalse(credit_card_validator("0000000000000000"))
 
-    def test_visa_13_digit_rejected_by_spec(self):
-        """13-digit Visa is out-of-spec here, must be False."""
+    def test_32(self):
+        """Visa - 13-digit"""
+        """Error Guesssing."""
         self.assertFalse(credit_card_validator("4222222222222"))
 
-    def test_mc_50_invalid_prefix(self):
-        """MC near-miss 50 should be rejected. Boundary below 51."""
+    def test_33(self):
+        """MC Below Boundary"""
+        """Boundary Testing."""
         self.assertFalse(credit_card_validator("5012345678901234"))
 
-    def test_mc_56_invalid_prefix(self):
-        """MC near-miss 56 should be rejected. Boundary above 55."""
+    def test_34(self):
+        """MC Above Boundary"""
+        """Boundary Testing."""
         self.assertFalse(credit_card_validator("5610591081018250"))
 
-    def test_amex_36_len_15(self):
-        """36 is not AmEx; 15-digit should be rejected. Partition trap."""
+    def test_35(self):
+        """Amex Below boundary"""
+        """Partition testing."""
         self.assertFalse(credit_card_validator("361111111111111"))
 
-    def test_amex_38_len_15(self):
-        """38 is not AmEx; 15-digit should be rejected. Partition trap."""
+    def test_36(self):
+        """Amex Below boundary"""
+        """Partition testing."""
         self.assertFalse(credit_card_validator("381111111111111"))
 
-    def test_mc_2series_len_15_invalid(self):
-        """2-series (valid prefix) wrong length 15 must fail (MC needs 16)."""
+    def test_37(self):
+        """MC wrong Length 15"""
+        """Error guessing."""
         self.assertFalse(credit_card_validator("222100000000000"))
 
-    def test_mc_2series_len_17_invalid(self):
-        """2-series wrong length 17 must fail."""
+    def test_38(self):
+        """MC Wrong Boundary and Length"""
         self.assertFalse(credit_card_validator("27200000000000000"))
 
-    def test_visa_len_16_ok_but_issuer_unsupported_6011(self):
-        """Discover-like 6011 with length 16 must be rejected (unsupported)."""
+    def test_39(self):
+        """Different card input."""
+        """Error guessing."""
         self.assertFalse(credit_card_validator("6011111111111117"))
 
-    def test_amex_prefix_with_len_16(self):
-        """AmEx prefix with 16 digits(AmEx requires 15)."""
+    def test_40(self):
+        """AmEx prefix with 16 digits"""
+        """Partition Testing."""
         self.assertFalse(credit_card_validator("3782822463100050"))
 
-    def test_mc_2_bad_luhn(self):
-        """Luhn-bad to pin parity mistakes."""
+    def test_41(self):
+        """Luhn-bad"""
+        """Error guessing."""
         self.assertFalse(credit_card_validator("2720992718075057"))
 
-    def test_mc_52_valid(self):
-        """MC 52 valid. Partition: 51–55 mid-range."""
+    def test_42(self):
+        """MC Valid Partition"""
+        """Partition Testing."""
         self.assertTrue(credit_card_validator("5200828282828210"))
 
-    def test_mc_53_valid(self):
-        """MC 53 valid. Partition: 51–55 mid-range."""
+    def test_43(self):
+        """MC 53 valid Partition"""
+        """Partition Testing."""
         self.assertTrue(credit_card_validator("5301250070000191"))
 
-    def test_mc_54_valid(self):
-        """MC 54 valid. Partition: 51–55 mid-range."""
+    def test_44(self):
+        """MC 53 valid Partition"""
+        """Partition Testing."""
         self.assertTrue(credit_card_validator("5454545454545454"))
 
-    def test_amex_nearmiss_36_len_15(self):
-        """36 at 15 digits is NOT AmEx. Partition trap."""
+    def test_45(self):
+        """AMEX 53 valid Partition"""
+        """Partition Testing."""
         self.assertFalse(credit_card_validator("361111111111111"))
 
-    def test_amex_nearmiss_38_len_15(self):
-        """38 at 15 digits is NOT AmEx. Partition trap."""
+    def test_46(self):
+        """AMEX 53 valid Partition"""
+        """Partition Testing."""
         self.assertFalse(credit_card_validator("381111111111111"))
 
-    def test_mc_2series_lower_bound_2221_valid(self):
-        """MC lower bound 2221."""
+    def test_47(self):
+        """AMEX 53 valid Partition"""
+        """Partition Testing."""
         self.assertTrue(credit_card_validator("2221000000000009"))
 
-    def test_mc_2series_upper_bound_2720_valid(self):
-        """MC upper bound 2720."""
+    def test_48(self):
+        """AMEX 53 valid Partition"""
+        """Partition Testing."""
         self.assertTrue(credit_card_validator("2720992718075056"))
-
-    def test_discover_like_6011_rejected(self):
-        """Unsupported 6011 should be rejected."""
-        self.assertFalse(credit_card_validator("6011111111111117"))
 
 
 if __name__ == "__main__":
