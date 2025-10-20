@@ -176,21 +176,21 @@ class TestCreditCardValidator(unittest.TestCase):
 
     def test_27(self):
         """
-        AmEx Top of boundary
+        AMEX Top of boundary
         Boundary Testing.
         """
         self.assertTrue(credit_card_validator("378282246310005"))
 
     def test_28(self):
         """
-        AmEx Incorrect length
+        AMEX Incorrect length
         Boundary Testing.
         """
         self.assertFalse(credit_card_validator("3782822463100050"))
 
     def test_29(self):
         """
-        AmEx valid prefix/length but bad Luhn.
+        AMEX valid prefix/length but bad Luhn.
         Error guessing.
         """
         self.assertFalse(credit_card_validator("378282246310006"))
@@ -225,14 +225,14 @@ class TestCreditCardValidator(unittest.TestCase):
 
     def test_35(self):
         """
-        Amex Below boundary
+        AMEX Below boundary
         Partition testing.
         """
         self.assertFalse(credit_card_validator("361111111111111"))
 
     def test_36(self):
         """
-        Amex Below boundary
+        AMEX Below boundary
         Partition testing.
         """
         self.assertFalse(credit_card_validator("381111111111111"))
@@ -260,7 +260,7 @@ class TestCreditCardValidator(unittest.TestCase):
 
     def test_40(self):
         """
-        AmEx prefix with 16 digits
+        AMEX prefix with 16 digits
         Partition Testing.
         """
         self.assertFalse(credit_card_validator("3782822463100050"))
@@ -335,7 +335,7 @@ class TestCreditCardValidator(unittest.TestCase):
 
     def test_51(self):
         """
-        AmEx 34 but with 14 digits.
+        AMEX 34 but with 14 digits.
         Boundary Value Analysis."""
         self.assertFalse(credit_card_validator("34000000000000"))
 
@@ -369,10 +369,80 @@ class TestCreditCardValidator(unittest.TestCase):
 
     def test_56(self):
         """
-        AmEx Wrong Prefix, length, and check digit
+        AMEX Wrong Prefix, length, and check digit
         Error Guessing.
         """
         self.assertFalse(credit_card_validator("4111111111111112"))
+
+    def test_57(self):
+        """
+        Visa prefix Correct, length incorrect.
+        Boundary Value Anaysis
+        """
+        self.assertFalse(credit_card_validator("4000000000000000008"))
+
+    def test_58(self):
+        """
+        Visa prefix correct, length incorrect.
+        Boundary Value Analysis.
+        """
+        self.assertFalse(credit_card_validator("4111111111"))
+
+    def test_59(self):
+        """
+        AMEX prefix correct, length incorrect.
+        Boundary Value Analysis
+        """
+        self.assertFalse(credit_card_validator("34000000000000"))
+
+    def test_60(self):
+        """
+        MC prefix correct, length incorrect.
+        Boundary Value Analysis
+        """
+        self.assertFalse(credit_card_validator("22210000000000"))
+
+    def test_61(self):
+        """
+        MC prefix correct, but length incorrect.
+        Boundary Value Analysis
+        """
+        self.assertFalse(credit_card_validator("272000000000000000"))
+
+    def test_62(self):
+        """
+        AMEX prefix correct, length correct, luhn incorrect.
+        Boundary Value Analysis
+        """
+        self.assertFalse(credit_card_validator("340000000000008"))
+
+    def test_63(self):
+        """
+        Visa prefix correct, length correct, luhn incorrect.
+        Boundary Value Analysis
+        """
+        self.assertFalse(credit_card_validator("340000000000091"))
+
+    def test_64(self):
+        """
+        AMEX Prefix correct, length incorrect, luhn correct.
+        Boundary Value Analysis
+        """
+        self.assertFalse(credit_card_validator("3400000000000919"))
+
+    def test_65(self):
+        """
+        MC Prefix correct, length incorrect, luhn correct.
+        Boundary Value Analysis
+        """
+        self.assertFalse(credit_card_validator("22210000000000992"))
+
+    def test_66(self):
+        """
+        Visa Prefix correct, length incorrect, luhn correct.
+        Boundary Value Analysis
+        """
+        self.assertFalse(credit_card_validator("411111111111112"))
 
 
 if __name__ == "__main__":
