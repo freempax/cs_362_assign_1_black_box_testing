@@ -144,11 +144,11 @@ class TestCreditCardValidator(unittest.TestCase):
         """MC near-miss 56 should be rejected. Boundary above 55."""
         self.assertFalse(credit_card_validator("5610591081018250"))
 
-    def test_amex_nearmiss_36_len_15(self):
+    def test_amex_36_len_15(self):
         """36 is not AmEx; 15-digit should be rejected. Partition trap."""
         self.assertFalse(credit_card_validator("361111111111111"))
 
-    def test_amex_nearmiss_38_len_15(self):
+    def test_amex_38_len_15(self):
         """38 is not AmEx; 15-digit should be rejected. Partition trap."""
         self.assertFalse(credit_card_validator("381111111111111"))
 
@@ -164,12 +164,12 @@ class TestCreditCardValidator(unittest.TestCase):
         """Discover-like 6011 with length 16 must be rejected (unsupported)."""
         self.assertFalse(credit_card_validator("6011111111111117"))
 
-    def test_amex_prefix_with_len_16_invalid(self):
-        """AmEx prefix with 16 digits must fail (AmEx requires 15)."""
+    def test_amex_prefix_with_len_16(self):
+        """AmEx prefix with 16 digits(AmEx requires 15)."""
         self.assertFalse(credit_card_validator("3782822463100050"))
 
-    def test_mc_2series_bad_luhn_alt(self):
-        """Second 2-series Luhn-bad to pin parity mistakes."""
+    def test_mc_2_bad_luhn(self):
+        """Luhn-bad to pin parity mistakes."""
         self.assertFalse(credit_card_validator("2720992718075057"))
 
     def test_mc_52_valid(self):
@@ -193,11 +193,11 @@ class TestCreditCardValidator(unittest.TestCase):
         self.assertFalse(credit_card_validator("381111111111111"))
 
     def test_mc_2series_lower_bound_2221_valid(self):
-        """MC lower bound 2221 inclusive must pass."""
+        """MC lower bound 2221."""
         self.assertTrue(credit_card_validator("2221000000000009"))
 
     def test_mc_2series_upper_bound_2720_valid(self):
-        """MC upper bound 2720 inclusive must pass."""
+        """MC upper bound 2720."""
         self.assertTrue(credit_card_validator("2720992718075056"))
 
     def test_discover_like_6011_rejected(self):
