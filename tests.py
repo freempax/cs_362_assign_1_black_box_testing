@@ -1,4 +1,8 @@
-"""This file calculates if a credit card number is valid using unit tests."""
+# Paxton Freeman
+# CS 362 - Software Engineering
+# Assignment 1 - Black Box Testing
+# 10-20-2025
+# """This file calculates if a credit card number is valid using unit tests."""
 
 from credit_card_validator import credit_card_validator
 import unittest
@@ -110,7 +114,8 @@ class TestCreditCardValidator(unittest.TestCase):
         self.assertTrue(credit_card_validator("5105105105105100"))
 
     def test_16(self):
-        """MC Valid input
+        """
+        MC Valid input
         Partition Testing.
         """
         self.assertTrue(credit_card_validator("5555555555554444"))
@@ -138,7 +143,7 @@ class TestCreditCardValidator(unittest.TestCase):
 
     def test_20(self):
         """
-        MC with 17 Characters
+        MC with 17 Characters with invalid prefix
         Boundary Testing
         """
         self.assertFalse(credit_card_validator("5610591081018250"))
@@ -160,18 +165,24 @@ class TestCreditCardValidator(unittest.TestCase):
         self.assertTrue(credit_card_validator("2720992718075056"))
 
     def test_24(self):
-        """MC below boundary"""
-        """Boundary Testing."""
+        """
+        MC below boundary
+        Boundary Testing.
+        """
         self.assertFalse(credit_card_validator("2220000000000009"))
 
     def test_25(self):
-        """MC Above boundary"""
-        """Boundary Testing."""
+        """
+        MC Above boundary
+        Boundary Testing.
+        """
         self.assertFalse(credit_card_validator("2721000000000008"))
 
     def test_26(self):
-        """MC bad Luhn."""
-        """Error guessing."""
+        """
+        MC bad Luhn
+        Error guessing.
+        """
         self.assertFalse(credit_card_validator("2223000048400012"))
 
     def test_27(self):
@@ -216,13 +227,6 @@ class TestCreditCardValidator(unittest.TestCase):
         """
         self.assertFalse(credit_card_validator("5012345678901234"))
 
-    def test_34(self):
-        """
-        MC Above Boundary
-        Boundary Testing.
-        """
-        self.assertFalse(credit_card_validator("5610591081018250"))
-
     def test_35(self):
         """
         AMEX Below boundary
@@ -258,13 +262,6 @@ class TestCreditCardValidator(unittest.TestCase):
         """
         self.assertFalse(credit_card_validator("6011111111111117"))
 
-    def test_40(self):
-        """
-        AMEX prefix with 16 digits
-        Partition Testing.
-        """
-        self.assertFalse(credit_card_validator("3782822463100050"))
-
     def test_41(self):
         """
         Luhn-bad
@@ -299,23 +296,16 @@ class TestCreditCardValidator(unittest.TestCase):
         """
         self.assertFalse(credit_card_validator("361111111111111"))
 
-    def test_46(self):
-        """
-        AMEX 53 valid Partition
-        Partition Testing.
-        """
-        self.assertFalse(credit_card_validator("381111111111111"))
-
     def test_47(self):
         """
-        AMEX 53 valid Partition
+        MC 53 valid Partition
         Partition Testing.
         """
         self.assertTrue(credit_card_validator("2221000000000009"))
 
     def test_48(self):
         """
-        AMEX 53 valid Partition
+        MC 53 valid Partition
         Partition Testing.
         """
         self.assertTrue(credit_card_validator("2720992718075056"))
@@ -418,7 +408,7 @@ class TestCreditCardValidator(unittest.TestCase):
 
     def test_63(self):
         """
-        Visa prefix correct, length correct, luhn incorrect.
+        AMEX prefix correct, length correct, luhn incorrect.
         Boundary Value Analysis
         """
         self.assertFalse(credit_card_validator("340000000000091"))
@@ -442,7 +432,35 @@ class TestCreditCardValidator(unittest.TestCase):
         Visa Prefix correct, length incorrect, luhn correct.
         Boundary Value Analysis
         """
-        self.assertFalse(credit_card_validator("411111111111112"))
+        self.assertFalse(credit_card_validator("411111111111116"))
+
+    def test_67(self):
+        """
+        MC Prefix Incorrect, length Incorrect, luhn correct.
+        Boundary Value Analysis
+        """
+        self.assertFalse(credit_card_validator("2221000000000008"))
+
+    def test_68(self):
+        """
+        Visa Prefix Incorrect, length Incorrect, luhn correct.
+        Boundary Value Analysis
+        """
+        self.assertFalse(credit_card_validator("3111111111111121"))
+
+    def test_69(self):
+        """
+        AMEX Prefix Incorrect, length Incorrect, luhn correct.
+        Boundary Value Analysis
+        """
+        self.assertFalse(credit_card_validator("3000056789512338"))
+
+    def test_70(self):
+        """
+        MC Prefix Incorrect, length Correct, luhn correct.
+        Partition Value Analysis
+        """
+        self.assertFalse(credit_card_validator("222023568912459"))
 
 
 if __name__ == "__main__":
