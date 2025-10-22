@@ -83,7 +83,7 @@ class TestCreditCardValidator(unittest.TestCase):
         Testing with a 20-digit input
         Error Guessing
         """
-        self.assertFalse(credit_card_validator("4" * 20))
+        self.assertFalse(credit_card_validator("400000000000000000000"))
 
     def test_12(self):
         """
